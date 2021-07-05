@@ -27,3 +27,7 @@ echo \
         Option      "Backlight"  "intel_backlight"
 EndSection" >> /etc/X11/xorg.conf
 # end make xorg.conf
+
+# polybar
+# git clone my stuff (add polybar
+# chmod +x ~/.config/polybar/launch.sh
