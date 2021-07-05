@@ -49,3 +49,8 @@ sudo dnf install -y ungoogled-chromium
 # tlp
 sudo dnf install tlp
 sudo tlp start
+
+# vim
+sudo dnf install vimx
+sudo mv /usr/bin/vimx /usr/bin/vim
+# add my source
