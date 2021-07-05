@@ -31,3 +31,11 @@ EndSection" >> /etc/X11/xorg.conf
 # polybar
 # git clone my stuff (add polybar
 # chmod +x ~/.config/polybar/launch.sh
+# add fonts:
+# SIJI:
+# git clone https://github.com/stark/siji && cd siji
+# ./install.sh
+
+# alternating layout
+# git clone https://github.com/olemartinorg/i3-alternating-layout.git && cd i3-alternating-layout
+# chmod +x alternating_layouts.py
