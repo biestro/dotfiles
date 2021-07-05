@@ -53,4 +53,6 @@ sudo tlp start
 # vim
 sudo dnf install vimx
 sudo mv /usr/bin/vimx /usr/bin/vim
-# add my source
+
+# add my source files (rofi and i3 config)
+# git clone
