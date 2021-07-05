@@ -45,3 +45,7 @@ EndSection" >> /etc/X11/xorg.conf
 # chromium
 sudo dnf config-manager -y --add-repo https://download.opensuse.org/repositories/home:/ungoogled_chromium/Fedora_34/home:ungoogled_chromium.repo
 sudo dnf install -y ungoogled-chromium
+
+# tlp
+sudo dnf install tlp
+tlp start
