@@ -48,4 +48,4 @@ sudo dnf install -y ungoogled-chromium
 
 # tlp
 sudo dnf install tlp
-tlp start
+sudo tlp start
