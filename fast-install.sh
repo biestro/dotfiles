@@ -62,5 +62,10 @@ sudo tlp start
 sudo dnf install vimx
 sudo mv /usr/bin/vimx /usr/bin/vim
 
+# solid wallpaper
+# sudo dnf install xsetroot
+
 # add my source files (rofi and i3 config)
 # git clone
+
+
