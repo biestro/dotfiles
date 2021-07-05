@@ -11,4 +11,15 @@ sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf copr enable fuhrmann/i3-gaps
 
 # all installation
-sudo dnf install -y git wget curl i3-gaps i3status rofi polybar
+sudo dnf install -y git wget curl i3-gaps i3status \ 
+rofi polybar xclip xbacklight
+
+# make xorg.conf
+sudo touch /etc/X11/xorg.conf
+echo \
+"Section \"Device\"
+        Identifier  "Intel Graphics"
+        Driver      "intel"
+        Option      "Backlight"  "intel_backlight"
+EndSection" >> /etc/X11/xorg.conf
+# end make xorg.conf
