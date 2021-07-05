@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# for fedora 34
+
 set -e
 
 sudo dnf update
@@ -13,7 +15,7 @@ sudo dnf copr enable fuhrmann/i3-gaps
 
 # some installation
 sudo dnf install -y git wget curl i3-gaps i3status \ 
-rofi polybar python3 python3-pip xclip xbacklight
+rofi polybar python3 python3-pip xclip xbacklight htop
 
 # for alternating layout
 pip3 install i3ipc 
