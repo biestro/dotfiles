@@ -41,3 +41,7 @@ EndSection" >> /etc/X11/xorg.conf
 # alternating layout
 # git clone https://github.com/olemartinorg/i3-alternating-layout.git && cd i3-alternating-layout
 # chmod +x alternating_layouts.py
+
+# chromium
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:/ungoogled_chromium/Fedora_34/home:ungoogled_chromium.repo
+sudo dnf install ungoogled-chromium
