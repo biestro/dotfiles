@@ -46,6 +46,14 @@ EndSection" >> /etc/X11/xorg.conf
 sudo dnf config-manager -y --add-repo https://download.opensuse.org/repositories/home:/ungoogled_chromium/Fedora_34/home:ungoogled_chromium.repo
 sudo dnf install -y ungoogled-chromium
 
+# picom fork
+git clone https://github.com/jonaburg/picom
+cd picom
+meson --buildtype=release . build
+ninja -C build
+# To install the binaries in /usr/local/bin (optional)
+sudo ninja -C build install
+
 # tlp
 sudo dnf install tlp
 sudo tlp start
