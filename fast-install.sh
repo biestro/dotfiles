@@ -14,8 +14,8 @@ https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E 
 sudo dnf copr enable fuhrmann/i3-gaps
 
 # some installation
-sudo dnf install -y git wget curl i3-gaps i3status \ 
-rofi picom polybar python3 python3-pip xclip xbacklight htop
+sudo dnf install -y git wget curl i3-gaps i3status htop \ 
+rofi picom polybar python3 python3-pip xclip xbacklight make
 
 # for alternating layout
 pip3 install i3ipc 
@@ -68,4 +68,6 @@ sudo mv /usr/bin/vimx /usr/bin/vim
 # add my source files (rofi and i3 config)
 # git clone
 
-
+# pfetch
+# git clone https://github.com/dylanaraps/pfetch.git && cd pfetch
+# sudo make install
