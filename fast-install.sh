@@ -4,14 +4,14 @@
 
 set -e
 
-sudo dnf update
+sudo dnf update -y
 
 # enable RPM fusion repositories
-sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \ 
-https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
+sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # enable i3-gaps repo
-sudo dnf copr enable fuhrmann/i3-gaps
+sudo dnf copr enable -y fuhrmann/i3-gaps
 
 # some installation
 sudo dnf install -y git wget curl i3-gaps i3status htop \ 
