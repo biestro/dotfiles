@@ -15,7 +15,7 @@ sudo dnf copr enable -y fuhrmann/i3-gaps
 
 # some installation
 sudo dnf install -y git wget curl i3-gaps i3status htop \ 
-rofi picom polybar python3 python3-pip xclip xbacklight make
+rofi picom polybar python3 python3-pip xclip xbacklight make xrdb
 
 # for alternating layout
 pip3 install i3ipc 
@@ -66,7 +66,9 @@ sudo mv /usr/bin/vimx /usr/bin/vim
 # sudo dnf install xsetroot
 
 # add my source files (rofi and i3 config)
-# git clone
+# git clone 
+# refresh Xresources:
+# xrdb ~/.Xresources
 
 # pfetch
 # git clone https://github.com/dylanaraps/pfetch.git && cd pfetch
