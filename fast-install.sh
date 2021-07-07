@@ -47,12 +47,14 @@ sudo dnf config-manager -y --add-repo https://download.opensuse.org/repositories
 sudo dnf install -y ungoogled-chromium
 
 # picom fork
-git clone https://github.com/jonaburg/picom
+git clone https://github.com/ibhagwan/picom
 cd picom
 meson --buildtype=release . build
 ninja -C build
 # To install the binaries in /usr/local/bin (optional)
 sudo ninja -C build install
+# picom config:
+# corner-radius: 10;
 
 # tlp
 sudo dnf install tlp
