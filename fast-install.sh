@@ -14,7 +14,7 @@ sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfr
 sudo dnf copr enable -y fuhrmann/i3-gaps
 
 # some installation
-sudo dnf install -y git wget curl i3-gaps i3status htop \ 
+sudo dnf install -y git wget curl i3-gaps i3status htop fluxbox \ 
 rofi picom polybar python3 python3-pip xclip xbacklight make xrdb
 
 # for alternating layout
