@@ -1,5 +1,5 @@
 # SOME APP VARIABLES
-set $browser	firefox
+set $browser	ungoogled-chromium
 set $term	alacritty
 	
 
@@ -11,8 +11,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango:monospace 12
-font pango:hasklig
+font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -36,9 +35,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # set brightness
 
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 #
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -53,7 +52,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym Mod1+Tab  exec --no-startup-id rofi -show window toggle
 
 # print screen section
-bindsym $mod+Shift+s exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+s exec --no-startup-id maim -s -o | xclip -selection clipboard -t image/png
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -90,40 +89,33 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
 #bindsym $mod+d focus child
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# Workspaces
 
-# switch to workspace
+set $ws1 "1:I" 
+set $ws2 "2:II"
+set $ws3 "3:III"
+set $ws4 "4:IV"
+set $ws5 "5:V"
+set $ws6 "6:VI"
+set $ws7 "7:VII"
+set $ws8 "8:VIII" 
+set $ws9 "9:IX"
+set $ws10 "10:X"
+
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -135,7 +127,6 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace and switch to said workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1 workspace number $ws1 
 bindsym $mod+Shift+2 move container to workspace number $ws2 workspace number $ws2 
 bindsym $mod+Shift+3 move container to workspace number $ws3 workspace number $ws3 
@@ -147,14 +138,14 @@ bindsym $mod+Shift+8 move container to workspace number $ws8 workspace number $w
 bindsym $mod+Shift+9 move container to workspace number $ws9 workspace number $ws9 
 bindsym $mod+Shift+0 move container to workspace number $ws10 workspace number $ws10 
 
-# RELOAD
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#### RELOAD
 
-# resize window (you can also use the mouse for that)
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+focus_follows_mouse no
+
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -181,80 +172,45 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#### I3 GAPS SPECIFIC
 
-
-#### i3-gaps #######################################
 # disable titles
 for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 0
 
 # gaps
 gaps inner 10
-gaps outer -2
+gaps bottom 30
 
-# SCRATCHPAD 
+bindsym $mod+Ctrl+G    gaps inner all set 0 
+bindsym $mod+G	       gaps inner all set 10
+
+#### SCRATCHPAD 
+
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+#### OTHER (START AND AUTOSTART)
 
-bindsym $mod+Ctrl+G    gaps inner all set 0 
-bindsym $mod+G	       gaps inner all set 9
-
-###### AUTOSTART ###################################
-
-
-#------ run with reload------- #
-exec_always --no-startup-id /home/ar/i3-alternating-layout/alternating_layouts.py
-#------ run once -------------# 
 exec --no-startup-id redshift-gtk
 exec --no-startup-id randr --dpi 125
 
-# ------ wallpaper
-# exec_always --no-startup-id betterlockscreen -w dim
-# exec --no-startup-id feh --bg-scale $HOME/Pictures/f24/aurora-over-iceland.png
-# exec_always --no-startup-id xsetroot -solid "#C79081"
-exec --no-startup-id fbsetroot -gradient Vertical -fg "#c79081" -bg "#dfa579"
 # wallpaper
-#
-#
-#
+exec_always --no-startup-id feh --bg-scale ~/Pictures/MCina1.jpg
+# exec --no-startup-id fbsetroot -gradient Vertical -fg "#c79081" -bg "#dfa579"
 # prevent mouse from focusing
-focus_follows_mouse no
-
-# alternating layout script
-
-# XRESOURCES
-#set_from_resource $fg foreground
-set $fg "#1e1e1e"
-set $bg "#1e1e1e"
-
-# CLASS                 BORDER  BACK    TEXT    INDICATOR
-client.focused          $bg     $bg     $fg     $bg
-client.focused_inactive $bg     $bg     $fg     $bg 
-client.unfocused        $bg     $bg     $fg     $bg
-client.urgent           $bg     $bg     $fg     $bg 
-client.placeholder      $bg     $bg     $fg     $bg 
-
-
-# Redshift
-
-# maybe this works, who knows
 
 # lock screen
-bindsym $mod+shift+x exec --no-startup-id betterlockscreen -l dim
+bindsym $mod+shift+x exec --no-startup-id betterlockscreen -l blur
 # bindsym $mod+shift+l exec betterlockscreen -l dim
 
 # polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
+exec --no-startup-id bash ~/.config/polybar/launch.sh
 # picom
 exec_always --no-startup-id picom
 
 title_align center
 
-# SCREENSHOTS
 
 ##### APP BINDS ###################################
 
@@ -262,4 +218,12 @@ bindsym $mod+n exec --no-startup-id $browser
 
 # RUN WITH RELOAD
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l blur # lock
-exec_always --no-startup-id /home/ar/i3-alternating-layout/alternating_layouts.py # alternating layouts
+exec_always --no-startup-id ~/alternating_layouts.py
+
+# WAL
+exec --no-startup-id wal -R
+
+# cmus
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r
