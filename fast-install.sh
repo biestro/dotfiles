@@ -75,3 +75,15 @@ sudo mv /usr/bin/vimx /usr/bin/vim
 # pfetch
 # git clone https://github.com/dylanaraps/pfetch.git && cd pfetch
 # sudo make install
+
+# i3lock
+# git clone https://github.com/pavanjadhaw/betterlockscreen
+# cd betterlockscreen
+# cp betterlockscreen ~/.local/bin/
+# dependencies
+# sudo dnf install imagemagick
+# sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
+# git clone https://github.com/Raymo111/i3lock-color.git
+# cd i3lock-color
+# ./build.sh
+# ./install-i3lock-color.sh
