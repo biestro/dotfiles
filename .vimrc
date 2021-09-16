@@ -16,7 +16,6 @@ runtime! archlinux.vim
 
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
-"other maybe: alduin = soft greyish blue and green , similar: angr but this is strong green, and lucius, but grey is bluer"
 "focuspoint: also strong green but darker"
 "gotham: dark and blue and red"
 "hybrid: nice blue and others, jellybeans = this but +contrast"
@@ -33,17 +32,41 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'lervag/vimtex'
-
-Plug 'rafi/awesome-vim-colorschemes' 
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'vim-pandoc/vim-rmarkdown'
 call plug#end()
 
-colorscheme afterglow
+"colorscheme ayu"
+"other maybe: alduin = soft greyish blue and green , similar: angr but this is strong green, and lucius, but grey is bluer"
 
 set sts=2
-"set sw=2
-"set ts=2
+set sw=2
+"set ts=2"
+
+"search ignores upper or lowercase:"
+set ignorecase
+
+"copy-paste across terminals
+set clipboard=unnamedplus
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+"saves and runs python with F5, nmap for normal, imap for insert"
+nmap <F5> <Esc>:w<CR>:!clear;python %<CR>
+
+"vimtex ignore warnings"
+let g:vimtex_quickfix_ignore_filters = [ 
+    \'Underfull',
+    \'underbar',
+    \'underline',
+    \'Overfull',
+    \'specifier changed to',
+    \'You have requested',
+    \'Missing number, treated as zero.',
+    \'There were undefined references',
+    \'Citation %.%# undefined',
+    \'Double space found.',
+    \'Font Warning',
+    \]
+
