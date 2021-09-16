@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Pomotroid
+Exec=/home/ar/.local/bin/pomotroid.Appimage
+Terminal=false
+Type=Application
+Icon=pomotroid
+StartupWMClass=Pomotroid
+X-AppImage-Version=0.13.0
+Comment=A simple and visually-pleasing Pomodoro timer
+Categories=Utility;
