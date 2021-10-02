@@ -1,10 +1,10 @@
 # fonts
 
 font:
-  normal:
-    #    family: hasklig
-    family: jetbrainsmono
-
+  #normal:
+    # family: hasklig
+    # family: jetbrainsmono
+    # family: Inconsolata
       ## Colors (Gruvbox dark)
       #colors:
       #  # Default colors
@@ -36,9 +36,11 @@ font:
       #    cyan:    '#8ec07c'
       #    white:   '#ebdbb2'
 
+  size: 12
 # Padding
 window:
   padding:
     x: 14
     y: 14
       #  dynamic_padding: true
+  decorations: none

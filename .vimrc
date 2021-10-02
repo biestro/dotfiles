@@ -31,11 +31,21 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" PLUGINS ::::::::::::::::::::::
+
 call plug#begin('~/.vim/plugged')
-Plug 'lervag/vimtex'
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-Plug 'vim-pandoc/vim-rmarkdown'
+  " Vim-latex
+  Plug 'lervag/vimtex'
+  " Vim R, maybe works, who knows, use emacs dude
+  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+  " For rmarkdown, but use emacs please
+  Plug 'vim-pandoc/vim-rmarkdown'
+  " Bottom status Line
+  Plug 'itchyny/lightline.vim'
+  " Error lines
+  Plug 'dense-analysis/ale'
 call plug#end()
+
 
 "colorscheme ayu"
 "other maybe: alduin = soft greyish blue and green , similar: angr but this is strong green, and lucius, but grey is bluer"
@@ -55,8 +65,8 @@ nmap <CR> o<Esc>
 "saves and runs python with F5, nmap for normal, imap for insert"
 nmap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
-"vimtex ignore warnings"
-let g:vimtex_quickfix_ignore_filters = [ 
+" VIMTEX WARNINGS
+let g:vimtex_quickfix_ignore_filters = [
     \'Underfull',
     \'underbar',
     \'underline',
@@ -70,3 +80,33 @@ let g:vimtex_quickfix_ignore_filters = [
     \'Font Warning',
     \]
 
+
+" STATUS LINE CONFIG
+
+set laststatus=2
+set noshowmode
+let g:lightline = {
+  \ 'colorscheme': 'seoul256',
+  \ }
+  "\ 'colorscheme': 'apprentice',
+  "\ 'colorscheme': 'jellybeans',
+  
+" ERROR LINE CONFG
+
+" ALE {
+  let g:ale_sign_error = '**'
+  let g:ale_sign_warning = '>>'
+  let g:ale_sign_info = 'i'
+  let g:ale_sign_style_error = ''
+  let g:ale_sign_style_warning = ''
+  " let g:ale_cursor_detail = 1
+  let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+  highlight ALEWarning guibg = #000000
+  highlight ALEWarningSign guibg = #000000
+  highlight ALEWarning guifg = #ffee33
+  highlight ALEWarningSign guifg = #ffee33
+ 
+  
+  highlight clear SignColumn
+" ALE }
