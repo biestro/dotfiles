@@ -36,23 +36,32 @@ endif
 call plug#begin('~/.vim/plugged')
   " Vim-latex
   Plug 'lervag/vimtex'
-  " Vim R, maybe works, who knows, use emacs dude
-  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-  " For rmarkdown, but use emacs please
-  Plug 'vim-pandoc/vim-rmarkdown'
   " Bottom status Line
   Plug 'itchyny/lightline.vim'
   " Error lines
   Plug 'dense-analysis/ale'
+	" Colorschemes
+	Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 
+" STATUS LINE CONFIG
 
-"colorscheme ayu"
-"other maybe: alduin = soft greyish blue and green , similar: angr but this is strong green, and lucius, but grey is bluer"
+set laststatus=2
+set noshowmode
+let g:lightline = {
+  \ 'colorscheme': 'seoul256',
+  \ }
+  "\ 'colorscheme': 'apprentice',
+  "\ 'colorscheme': 'jellybeans',
+  
+
+
+colorscheme gruvbox
+"other maybe: alduin = soft greyish blue and green , similar: angr but this is strong green, and lucius, but grey is bluer, ayu"
 
 set sts=2
 set sw=2
-"set ts=2"
+set ts=2
 
 "search ignores upper or lowercase:"
 set ignorecase
@@ -64,6 +73,10 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 "saves and runs python with F5, nmap for normal, imap for insert"
 nmap <F5> <Esc>:w<CR>:!clear;python %<CR>
+"running in julia
+nmap <F6> <Esc>:w<CR>:!clear;julia %<CR>
+"running with cargo run
+nmap <F7> <Esc>:w<CR>:!clear;cargo run %<CR>
 
 " VIMTEX WARNINGS
 let g:vimtex_quickfix_ignore_filters = [
@@ -78,35 +91,9 @@ let g:vimtex_quickfix_ignore_filters = [
     \'Citation %.%# undefined',
     \'Double space found.',
     \'Font Warning',
+    \'Package hyperref Warning',
+    \'\headheight',
+    \'Wrong length of dash',
     \]
 
 
-" STATUS LINE CONFIG
-
-set laststatus=2
-set noshowmode
-let g:lightline = {
-  \ 'colorscheme': 'seoul256',
-  \ }
-  "\ 'colorscheme': 'apprentice',
-  "\ 'colorscheme': 'jellybeans',
-  
-" ERROR LINE CONFG
-
-" ALE {
-  let g:ale_sign_error = '**'
-  let g:ale_sign_warning = '>>'
-  let g:ale_sign_info = 'i'
-  let g:ale_sign_style_error = ''
-  let g:ale_sign_style_warning = ''
-  " let g:ale_cursor_detail = 1
-  let g:ale_linters = { 'cs': ['OmniSharp'] }
-
-  highlight ALEWarning guibg = #000000
-  highlight ALEWarningSign guibg = #000000
-  highlight ALEWarning guifg = #ffee33
-  highlight ALEWarningSign guifg = #ffee33
- 
-  
-  highlight clear SignColumn
-" ALE }
