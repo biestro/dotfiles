@@ -31,8 +31,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" PLUGINS ::::::::::::::::::::::
-
+" PLUGINS 
 call plug#begin('~/.vim/plugged')
   " Vim-latex
   Plug 'lervag/vimtex'
@@ -42,10 +41,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'
 	" Colorschemes
 	Plug 'rafi/awesome-vim-colorschemes'
+	" Nerdtree
+	Plug 'preservim/nerdtree'
 call plug#end()
 
-" STATUS LINE CONFIG
+" NERDTREE
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+let g:NERDTreeDirArrowExpandable = '~'
+let g:NERDTreeDirArrowCollapsible = '~'
+
+" STATUS LINE CONFIG
 set laststatus=2
 set noshowmode
 let g:lightline = {
