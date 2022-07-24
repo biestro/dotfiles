@@ -23,6 +23,19 @@ runtime! archlinux.vim
 "orbital: deep blue stuff"
 "sierra: dark soft reds"
 set background=dark
+
+set visualbell
+
+set noswapfile
+
+set ttyfast lazyredraw
+
+set showmatch
+
+"system clipboard
+set clipboard=unnamedplus
+
+
 "other cool ones: 256noir, twilight256, torte, sunbather, oceanic material"
 set number
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -43,6 +56,19 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rafi/awesome-vim-colorschemes'
 	" Nerdtree
 	Plug 'preservim/nerdtree'
+  " 
+  Plug 'tpope/vim-commentary'
+  " use cs"' to change " --> '
+  Plug 'tpope/vim-surround'
+  " colorschemes 2
+  Plug 'fenetikm/falcon'
+  " predivcive text
+  " Plug 'primitivorm/vim-predictive'
+  " rust autocomplete
+  " python autocomplete
+  " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  " more autocomplete
+  Plug 'maralla/completor.vim'
 call plug#end()
 
 " NERDTREE
@@ -52,29 +78,46 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 let g:NERDTreeDirArrowExpandable = '~'
 let g:NERDTreeDirArrowCollapsible = '~'
 
+" let g:predictive#disable_plugin = 1
+" AUTOCOMPLETION
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
 " STATUS LINE CONFIG
 set laststatus=2
 set noshowmode
 let g:lightline = {
-  \ 'colorscheme': 'seoul256',
+  \ 'colorscheme': 'jellybeans',
   \ }
   "\ 'colorscheme': 'apprentice',
   "\ 'colorscheme': 'jellybeans',
   
+colorscheme falcon
 
 
-colorscheme gruvbox
+
+
+" colorscheme gruvbox
 "other maybe: alduin = soft greyish blue and green , similar: angr but this is strong green, and lucius, but grey is bluer, ayu"
 
-set sts=2
+set colorcolumn=70
+
 set sw=2
 set ts=2
+set expandtab
+
+" disables python tabbing
+let g:python_recommended_style = 0
 
 "search ignores upper or lowercase:"
 set ignorecase
 
 "copy-paste across terminals
 set clipboard=unnamedplus
+
+"comments
+noremap <C-m> :normal! I#<CR>
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
@@ -84,6 +127,10 @@ nmap <F5> <Esc>:w<CR>:!clear;python %<CR>
 nmap <F6> <Esc>:w<CR>:!clear;julia %<CR>
 "running with cargo run
 nmap <F7> <Esc>:w<CR>:!clear;cargo run %<CR>
+"running with octave
+nmap <F8> <Esc>:w<CR>:!clear;octave %<CR>
+
+
 
 " VIMTEX WARNINGS
 let g:vimtex_quickfix_ignore_filters = [
@@ -101,6 +148,9 @@ let g:vimtex_quickfix_ignore_filters = [
     \'Package hyperref Warning',
     \'\headheight',
     \'Wrong length of dash',
+    \'Package natbib Warning',
+    \'Reference',
+    \'A float is stuck',
     \]
 
 
