@@ -69,6 +69,8 @@ call plug#begin('~/.vim/plugged')
   " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
   " more autocomplete
   Plug 'maralla/completor.vim'
+  " commenter
+  Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " NERDTREE
@@ -87,13 +89,13 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " STATUS LINE CONFIG
 set laststatus=2
 set noshowmode
-let g:lightline = {
-  \ 'colorscheme': 'jellybeans',
-  \ }
-  "\ 'colorscheme': 'apprentice',
-  "\ 'colorscheme': 'jellybeans',
+" let g:lightline = {
+"   \ 'colorscheme': 'apprentice',
+"   \ }
+"   "\ 'colorscheme': 'jellybeans',
+"   "\ 'colorscheme': 'jellybeans',
   
-colorscheme falcon
+" colorscheme alduin 
 
 
 
@@ -118,7 +120,11 @@ set clipboard=unnamedplus
 
 "comments
 noremap <C-m> :normal! I#<CR>
+"vnoremap <C-m> :norm
 
+
+
+" COMMANDS
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 "saves and runs python with F5, nmap for normal, imap for insert"

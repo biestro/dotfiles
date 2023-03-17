@@ -10,6 +10,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="half-life"
+#ZSH_THEME="duellj"
+
+#ZSH_THEME="agnoster"
+#ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,6 +69,10 @@ ZSH_THEME="half-life"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+# env theme
+#export VIRTUAL_ENV_DISABLE_PROMPT=1
+#`conda config --set changeps1 false`
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
