@@ -1,0 +1,8 @@
+layout tall
+
+cd $HOME/Documents/2023/
+launch zsh
+
+# home tab
+new_tab Home
+cd ~
